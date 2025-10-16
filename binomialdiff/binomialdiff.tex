@@ -1,0 +1,46 @@
+%Jason Hwang
+%Math Integration Club
+
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18, width=10cm}
+\newcommand*\Lh{\ensuremath{\overset{\kern2pt L'H}{=}}}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+\title{SMC Math Integration Club\\Substitutions for Binomial Differential Integrals}
+\author{Jae Sung "Jason" Hwang}
+\date{April 24th, 2025}
+
+\begin{document}
+\maketitle
+
+\pagebreak
+{Before we get down to business with the Gamma function (generalized factorial function), or the beta function, we need to visit a function of binomial differentials.} \\
+\\ {This visit isn't one that is entirely necessary, but it is a visit worth having nonetheless due to its link to the beta function. However, before that, you all are probably wondering, what in the world are binomial differentials?} \\
+\\${\displaystyle \int x^{m}(a+bx^{n})^{p} \,dx \text{  } s.t. \text{  } m,n,p \in \mathbb{Q}, \text{  } a,b \in \mathbb{R} }$ \\ 
+\\ \includegraphics[scale=0.05]{Pafnuty_Lvovich_Chebyshev.jpg} \\
+\\ {Everyone, meet P.L. Chebyshev and his goregeous beard! This is the man who looked at the above integral and found that it is only evaluable in three different conditions. That is if: }\\
+\\ {1.} ${\frac{m+1}{n}+p \in \mathbb{Z}}${, 2. }${\frac{m+1}{n} \in \mathbb{Z}}${, and 3. }${p \in \mathbb{Z}}$\\
+\\ {How did we come up with this? Well, he used a substitution!} \\
+\\ ${\displaystyle \text{Let } z = x^{n} \implies x = z^{\frac{1}{n}} \implies dx = \frac{1}{n}z^{\frac{1}{n}-1} dz}$\\
+\\ ${\displaystyle \int x^{m}(a+bx^{n})^{p} \,dx = \frac{1}{n}\int z^{\frac{m}{n}}(a+bz)^{p} \, z^{\frac{1}{n}-1}dz = \frac{1}{n}\int z^{\frac{m+1}{n}-1}(a+bz)^{p} \,dz}$ \\
+\\ {Do you now see why those three conditions are super important for the integral to be evaluable?} \\
+\newpage
+{There are three different substitutions, though, that is catered towards the above three conditions.}\\
+\\ {3. If } ${p \in \mathbb{Z}}$ {, we use the substitution } ${x = t^{k}}$ { s.t.} ${k}$ {is a common denominator of the fractions } ${m}$ { and } ${n.}$ \\
+\\ {2. If } ${\frac{m+1}{n} \in \mathbb{Z}}$ {, we use the substitution } ${a + bx^{n} = t^{r}}$ { s.t.} ${r}$ {is a denominator of the fraction } ${p.}$ \\
+\\ {1. If } ${\frac{m+1}{n}+p \in \mathbb{Z}}$ {, We let } ${\displaystyle I = \int x^{m}(a+bx^{n})^{p} \,dx = \int x^{m}(x^{n}(ax^{-n}+b))^{p} \,dx}$ \\
+\\ ${\displaystyle I = \int x^{m}x^{np}(ax^{-n}+b)^{p} \,dx = \int x^{m+np}(b+ax^{-n})^{p} \,dx }$\\
+\\ {and we let, } ${\tilde{m} = m+np, \tilde{n} = -n, \tilde{p} = p}$  { then, } ${\frac{\tilde{m} + 1}{\tilde{n}} = \frac{m+np+1}{-n} = -(\frac{m+1}{n} +p) \in \mathbb{Z}}$\\
+\\ {thus, } ${\displaystyle \int x^{m}(a+bx^{n})^{p} \,dx = \int x^{\tilde{m}}(b+ax^{\tilde{n}})^{\tilde{p}}\,dx}$ { and let, } ${b+ax^{\tilde{n}} = t^{\tilde{r}}}$ ${\text{where } \tilde{r} \text{ is a denominator of } \tilde{p}.}$ \\
+\newpage
+1) ${\displaystyle \int x^{\frac{2}{5}}(2+x^{\frac{2}{3}})^{2} \,dx }$\newpage
+2) ${\displaystyle \int x^{\frac{2}{5}}(2+x^{\frac{2}{3}})^{\frac{3}{5}} \,dx }$ \newpage
+
+\end{document}

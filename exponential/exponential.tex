@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\pgfplotsset{compat=1.18, width=10cm}
+\newcommand*\Lh{\ensuremath{\overset{\kern2pt L'H}{=}}}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+
+\title{SMC Math Integration Club\\Loophole Logarithms and Finding Derivatives }
+\author{Justin Chang\\Jae Sung "Jason" Hwang}
+\date{October 21st, 2024}
+
+\begin{document}
+\maketitle
+\pagebreak
+
+
+1) ${\displaystyle \int e^{x}(\cos{x}-\sin{x})\,dx}$ \newline
+% \\
+% Notice that: ${\displaystyle f(x) = e^{x}\cos{x}}$ and ${\displaystyle f'(x) = e^{x}\cos{x}-e^{x}\sin{x}}$ \newline
+% \\
+% Then : ${\displaystyle \int e^{x}(\cos{x}-\sin{x})\,dx = \int f'(x) \,dx}$ \newline
+% \\
+% Since, ${\displaystyle \int f'(x) \,dx = f(x) + C }$ and ${\displaystyle f(x) = e^{x}\cos{x}}$ \newline
+% \\
+% Therefore, ${\displaystyle \int e^{x}(\cos{x}-\sin{x})\,dx = e^{x}\cos{x} + C}$
+
+\pagebreak
+
+2) ${\displaystyle \int  \frac{xe^{2x}}{(2x+1)^{2}}\,dx}$ \newline
+% \\
+% Recall that: ${\displaystyle \frac{d}{dx}\frac{f(x)}{g(x)} = \frac{f'(x)g(x)-g'(x)f(x)}{(g(x))^{2}}}$ \newline
+% \\
+% It would be awfully convenient if our ${g(x) = (2x+1)}$\newline
+% \\
+% So just let, ${g(x) = 2x + 1}$ and ${g'(x) = 2}$ \newline
+% \\
+% Then, ${\displaystyle \frac{f'(x)(2x+1)-2f(x)}{(2x+1)^2}}$ \newline
+% \\
+% Thus, ${\displaystyle f'(x)(2x+1) - 2(f(x)) = xe^{2x}}$ \newline
+% \\
+% Then, ${\displaystyle f'(x)2x+ f'(x) - 2(f(x)) = xe^{2x}}$ and ${\displaystyle f'(x) - 2f(x) = 0}$ and ${2f'(x)x = xe^{2x} }$ \newline
+% \\
+% Which means, ${\displaystyle f'(x) = \frac{1}{2}e^{2x}}$ and ${\displaystyle f(x) = \frac{1}{4}e^{2x}}$, which works because ${\displaystyle f'(x) - 2f(x) = 0}$ would be ${\displaystyle \frac{1}{2}e^{2x} - \frac{1}{2}e^{2x} = 0}$ \newline
+% \\
+% Finally, ${\displaystyle f(x) = \frac{1}{4}e^{2x}}$ and  ${g(x) = (2x+1)}$. \newline
+% \\
+% Therefore, ${\displaystyle \int  \frac{xe^{2x}}{(2x+1)^{2}}\,dx = \frac{1}{4} (\frac{e^{2x}}{(2x+1)}) + C}$
+
+\pagebreak
+
+
+3)${\displaystyle \int  x^{\frac{\ln{\ln{x}}}{\ln{x}}-1}\,dx}$ \newline
+% \\
+% ${\displaystyle = \int  \frac{1}{x}e^{\ln{x^{(\frac{\ln{\ln{x}}}{\ln{x}})}}}\,dx}$ \newline
+% \\
+% ${\displaystyle = \int  \frac{1}{x}e^{(\frac{\ln{\ln{x}}}{\ln{x}})\ln{x}}\,dx}$ \newline
+% \\
+% ${\displaystyle = \int  \frac{1}{x}e^{\ln{(\ln{x})}}\,dx}$ \newline
+% \\
+% ${\displaystyle = \int  \frac{1}{x}\ln(x)\,dx}$ \newline
+% \\
+% ${\displaystyle = \int  u \,du}$ \newline
+% \\
+% ${\displaystyle = \frac{1}{2}u^2 + C}$ \newline
+% \\
+% ${\displaystyle = \frac{1}{2}(\ln|x|)^{2} + C }$ \newline
+
+\pagebreak
+
+4) ${\displaystyle \int \sin{\ln{\left(x\right)}} + \cos{\ln{x}} \,dx}$
+% ${u = \ln{x} \quad e^u = x \to e^u du = dx}$ \newline
+% \\
+% ${= \int{\left(\sin{u} + \cos{u}\right)e^u du}}$ \newline
+% \\
+% So let's think about the shape of our function if we were able to get this far. It's a good idea if you can force it into this sort of pattern to think about what this can decompose down to. If we distribute the $e^u$ we indeed see that... \newline
+% \\
+% ${= \int{\sin{u}e^u + \cos{u}e^u}du}$ \newline
+% \\
+% Immediately at this juncture we should thinking about the product rule. We know either f(x) or g(x) is $e^u$... We also know we don't have a difference of signs in the trig function. Thus we can immediately make the distinction that we're dealing with sin(x) as the other function.. thus... \newline
+% \\
+% ${ = e^u\sin{\left(x\right)}}$ \newline
+% \\
+% Remember we need to back substitute, therefore... \newline
+% \\
+% ${= x\sin{\ln{x}} + C }$
+
+\pagebreak
+
+5)
+\textbf{Challenge}
+\begin{align*}
+\int_{0}^{\infty} {\left( \frac{1}{x(1+x)} - \frac{\ln{(1+x)}}{x^2}\right) \left(1 + x\right)^{\frac{1}{x}}dx} \\
+% \int_{0}^{\infty} {\left( \frac{1}{x(1+x)} - \frac{\ln{(1+x)}}{x^2}\right) e^{\left( \frac{\ln{1+x}}{x}\right)} dx} \\
+% \int_{0}^{\infty} {\left( \frac{1}{x(1+x)} - \frac{\ln{(1+x)}}{x^2}\right) \frac{\ln{(1+x)}}{x}dx} \\
+% u = \frac{\ln{(1+x)}}{x} du = \frac{\frac{x}{1+x} - \ln{(1+x)}}{x^2} = \frac{1}{x(1+x)} - \frac{\ln{(1+x)}}{x^2} \\ 
+% \end{align*}
+% So we need to determine our bounds... and like in many times in the past whenever we had a problematic indeterminacy, we had to evalute the limit using L'hopitals.
+% \begin{align*}
+% \lim_{x\to\infty} \frac{\ln{(1+x)}}{x} \Lh \lim_{x \to \infty} \frac{1}{1+x} = 0 \\
+% \lim_{x \to 0} \frac{\ln{(1+x)}}{x} \Lh \lim_{x \to 0} \frac{1}{1+x} = 1 \\
+% \int_1^0 e^u du = -\int_0^1 e^u = -[e-1] = 1 - e \quad \tikz \filldraw[rotate=45] (0,0) rectangle (0.2cm,0.2cm);
+\end{align*}
+
+
+
+\end{document}

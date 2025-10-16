@@ -1,0 +1,204 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, mismath, ulem, gensymb, mathtools, nccmath, hyperref, tikz}
+\usepackage{graphicx}
+\usepackage[margin = 2.5cm]{geometry}
+
+
+\title{SMC Math Integration Club\\Review of Previous Methods and \\ Additional Basic Trigonometric Definitions}
+\author{Jae Sung "Jason" Hwang\\Justin Chang}
+\date{October 29th, 2024}
+
+\begin{document}
+\maketitle
+\pagebreak
+
+\Large
+Happy Halloween! Since it is Halloween, most of the problems you will see are reviews of previous methods.
+But a lot of them will be just as "scary" (heehee) as the integrals you encountered before. But no worries!
+With the power of Tangent Half-Angle Substitutions, King's rule, Loophole Logarithms, and Finding Derivatives,
+all of these will be cake! \\
+\newline
+Integrals before our techniques:\\
+\includegraphics[scale=0.5]{Screen Shot 2024-10-27 at 12.26.29 PM.png}
+\\
+Integrals after our techniques:\\
+\includegraphics[scale=0.5]{Cute-Ghost-Halloween-Clipart-Graphics-76061076-2-580x387.jpg}
+\pagebreak
+
+First, let's view the new concept we are entering. \\ (To be honest, not necessarily new!)\\
+
+${(\cos(x)+\sin(x))^{2} = \cos^2(x)+2\cos(x)\sin(x)+\sin^2(x)}$ \newline
+\indent \indent \indent \indent \indent \indent \indent \indent \space ${= \cos^2(x)+\sin^2(x)+2\cos(x)\sin(x)}$ \newline
+\indent \indent \indent \indent \indent \indent \indent \indent \space ${= 1+\sin(2x)}$ \newline
+
+${(\cos(x)-\sin(x))^{2} = \cos^2(x)-2\cos(x)\sin(x)+\sin^2(x)}$ \newline
+\indent \indent \indent \indent \indent \indent \indent \indent \space ${= \cos^2(x)+\sin^2(x)-2\cos(x)\sin(x)}$ \newline
+\indent \indent \indent \indent \indent \indent \indent \indent \space ${= 1-\sin(2x)}$ \newline
+\\
+Let's try some integrals with these new substitutions!
+\pagebreak
+
+1) ${\displaystyle \int \frac{(\cos(x)+\sin(x))^{2}+(\cos(x)-\sin(x))^{2}}{1-\sin^2(2x)} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int \frac{1+\sin(2x)+1-\sin(2x)}{1-\sin^2(2x)} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int \frac{2}{1-\sin^2(2x)} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int \frac{2}{\cos^2(2x)} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int 2\sec^2(2x) \,dx}$ \newline
+% \\
+% ${\displaystyle = \tan(2x) + C}$
+
+\pagebreak
+2) ${\displaystyle \int \frac{-2\cos^2(x)+2\sin^2(x)}{(\cos(x)-\sin(x))^{2}} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int \frac{-2(\cos^2(x)-\sin^2(x))}{(1-\sin(2x))} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int \frac{-2\cos(2x)}{(1-\sin(2x))} \,dx}$ \newline
+% \\
+% u-sub! ${\displaystyle u = 1-\sin(2x)}$ ; ${\displaystyle du = -2\cos(2x) \,dx}$ \newline
+% \\
+% ${\displaystyle =\int \frac{1}{u} \,du}$ \newline
+% \\
+% ${\displaystyle = \ln|u|+C}$ \newline
+% \\
+% ${\displaystyle = \ln|1-\sin(2x)|+C}$
+
+\pagebreak
+3) ${\displaystyle 2\int \e^{x}(\cos(2x)+\frac{1}{2}(\cos(x)+\sin(x))^{2}) \,dx}$ \newline
+% \\
+% ${\displaystyle = \int \e^{x}(2\cos(2x)+(\cos(x)+\sin(x))^{2}) \,dx}$ \newline
+% \\
+% ${\displaystyle = \int \e^{x}(2\cos(2x)+(1+\sin(2x))) \,dx}$ \newline
+% \\
+% ${\displaystyle = \int (2\e^{x}\cos(2x)+\e^{x}(1+\sin(2x)) \,dx}$ \newline
+% \\
+% % Do you smell something in the integral...? \newline
+% % \\
+% % There is something "changing"...or..."differentiated"... \newline
+% % \\
+% Suppose ${\displaystyle 2\e^{x}\cos(2x)+\e^{x}(1+\sin(2x)) = f'(x)g(x) + f(x)g'(x)}$ \newline
+% \\
+% % I see the anti-derivative hiding and lurking under the shadows...\newline
+% % It is there somewhere... \newline
+% % \\
+% % *a wild 
+% ${f(x) = e^{x}}$ and ${g(x) = 1+\sin(2x)}$ \newline
+% % shows up out of nowhere!!* 
+% \\
+% % Ahhh!!!!!!!!
+% % \\
+% % *While running* \newline
+% Therefore, ${\displaystyle 2\int \e^{x}(\cos(2x)+\frac{1}{2}(\cos(x)+\sin(x))^{2}) \,dx = e^{x}(1+\sin(2x)) + C}$
+
+\pagebreak
+
+4) ${\displaystyle \int_{0}^{\pi/4} \frac{1-\cos^2(2x)}{x^{\frac{2\ln(\sin(x+\frac{\pi}{4})+\cos(x+\frac{\pi}{4}))}{\ln(x)}}}) \,dx}$ \newline
+% \\
+% ${\displaystyle = \int_{0}^{\pi/4} \frac{1-\cos^2(2x)}{e^{\ln(x^{\frac{2\ln(\sin(x+\frac{\pi}{4})+\cos(x+\frac{\pi}{4}))}{\ln(x)}})}} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int_{0}^{\pi/4} \frac{1-\cos^2(2x)}{e^{{\frac{2\ln(\sin(x+\frac{\pi}{4})+\cos(x+\frac{\pi}{4}))}{\ln(x)}}\ln(x)}} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int_{0}^{\pi/4} \frac{1-\cos^2(2x)}{e^{\ln((\sin(x+\frac{\pi}{4})+\cos(x+\frac{\pi}{4}))^2)}} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int_{0}^{\pi/4} \frac{1-\cos^2(2x)}{(\sin(x+\frac{\pi}{4})+\cos(x+\frac{\pi}{4}))^2} \,dx}$\newline
+% \\
+% % Your majesty... the derivatives have attacked one of our "integral" scouts! What shall we do? \newline
+% % \\
+% Apply King's Rule \newline
+% % \small(I love my jokes, don't make fun of them) \newline
+% % \Large
+% \\
+% ${\displaystyle = \int_{0}^{\pi/4} \frac{1-\cos^2(2(\frac{\pi}{4}-x))}{(\sin(\frac{\pi}{4}-x+\frac{\pi}{4})+\cos(\frac{\pi}{4}-x+\frac{\pi}{4}))^2} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int_{0}^{\pi/4} \frac{1-\cos^2(\frac{\pi}{2}-2x)}{(\sin(\frac{\pi}{2}-x)+\cos(\frac{\pi}{2}-x))^2} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int_{0}^{\pi/4} \frac{1-\sin^2(2x)}{(\cos(x)+\sin(x))^2} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int_{0}^{\pi/4} \frac{(1-\sin(2x))(1+\sin(2x))}{1+\sin(2x)} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int_{0}^{\pi/4} 1-\sin(2x) \,dx}$ \newline
+% \\
+% ${\displaystyle = x + \frac{1}{2}\cos(2x) \big|_{0}^{\pi/4}}$ \newline
+% \\
+% ${\displaystyle = \frac{\pi-2}{4} }$ \newline
+% \\
+% Therefore, ${\displaystyle \int_{0}^{\pi/4} \frac{1-\cos^2(2x)}{x^{\frac{2\ln(\sin(x+\frac{\pi}{4})+\cos(x+\frac{\pi}{4}))}{\ln(x)}}}) \,dx = \frac{\pi-2}{4} }$
+
+\pagebreak
+
+5) ${\displaystyle \int \frac{x^{\frac{\ln(1-\sin(2x))}{\ln(x)}}}{(\cos(x)-\sin(x))^3} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int \frac{e^{\ln(x^{\frac{\ln(1-\sin(2x))}{\ln(x)}})}}{(\cos(x)-\sin(x))^3} \,dx}$\newline
+% \\
+% ${\displaystyle = \int \frac{e^{{\frac{\ln(1-\sin(2x))}{\ln(x)}}\ln(x)}}{(\cos(x)-\sin(x))^3} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int \frac{e^{{\ln(1-\sin(2x))}}}{(\cos(x)-\sin(x))^3} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int \frac{(1-\sin(2x))}{(\cos(x)-\sin(x))^3} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int \frac{(\cos(x)-\sin(x))^2}{(\cos(x)-\sin(x))^3} \,dx}$ \newline
+% \\
+% ${\displaystyle = \int \frac{1}{\cos(x)-\sin(x)} \,dx}$ \newline
+% % \\
+% % % *Something eerie lurks about the forest... no one knows what it is...* \newline
+% % % "Daddy I'm scared..." the son whispered.\newline
+% % % \\
+% % % "It's alright, no matter what scary integral comes about, we have our special weapon... the wand of... \newline
+% % % \\
+% % % ...Weierstrass" \newline
+% \\ Weierstrass substitution \newline
+% Let, ${\displaystyle t = \tan(\frac{x}{2})}$ \indent ${\displaystyle \,dx = \frac{2}{1+t^{2}} \,dt}$ \indent ${\displaystyle \sin(x) = \frac{2t}{1+t^{2}}}$ \indent ${\displaystyle \cos(x) = \frac{1-t^{2}}{1+t^{2}}}$ \newline
+% \\
+% ${\displaystyle = \int \frac{1}{\frac{1-t^{2}}{1+t^{2}}-\frac{2t}{1+t^{2}}} \cdot \frac{2}{1+t^{2}} \,dt}$ \newline
+% \\
+% ${\displaystyle = \int \frac{1}{\frac{1-t^{2}}{1+t^{2}}-\frac{2t}{1+t^{2}}} \cdot \frac{2}{1+t^{2}} \,dt}$ \newline
+% \\
+% ${\displaystyle = \int \frac{2}{1-t^{2}-2t}\,dt}$ \newline
+% \\
+% ${\displaystyle = \int \frac{-2}{t^{2}+2t-1}\,dt}$ \newline
+% \\
+% % "AHHH!! Daddy! The integral scarecrow has a quadratic equation, ${t^{2}+2t-1}$!!" the son shouted with fear. \newline
+% % \\
+% % "ALL THE YEARS OF TRAINING HAS LED TO THIS MOMENT SON! TAKE OUT YOUR GOGGLE OF QUADRATIC FORMULA!" Father yelled \newline
+% % \\
+% ${\displaystyle t = \frac{-2 \pm \sqrt{4-4(1)(-1)}}{2}}$ \newline
+% \\
+% % As they ran, the son took out the goggles and looked at the integral scarecrow, and saw that it was made up of: ${\displaystyle t = {-1 \pm \sqrt{2}}}$, making it: \newline
+% % \\
+% ${\displaystyle = \int \frac{-2}{t^{2}+2t-1}\,dt = \int \frac{-2}{(t+\sqrt{2}+1)(t-\sqrt{2}+1)}\,dt}$\newline
+% \\
+% % "Almost father! we need to use the arrow of Partial Fraction Decomposition!" son yelled. \newline
+% % \\
+% % Father readied the bow, and shot straight at the scarecrow! making it: \newline
+% % \\
+% ${\displaystyle \frac{-2}{(t+\sqrt{2}+1)(t-\sqrt{2}+1)} = \frac{A}{(t+\sqrt{2}+1)}+\frac{B}{(t-\sqrt{2}+1)}}$\newline
+% \\
+% ${\displaystyle -2 = A(t-\sqrt{2}+1)+B(t+\sqrt{2}+1)}$\newline
+% \\
+% ${\displaystyle -2 = (A+B)t + (A+B)2 + (B-A)\sqrt{2}}$\newline
+% \\
+% ${A+B = 0}$, ${B-A = \frac{-2}{\sqrt{2}}}$ \newline
+% \\
+% ${A = -B}$, ${2B =\frac{-2}{\sqrt{2}}}$\newline
+% \\
+% ${B = -\frac{1}{\sqrt{2}}}$, ${A =\frac{1}{\sqrt{2}}}$ \newline
+% \\
+% % The arrow hit right in the integral scarecrow's legs! \newline
+% % \\
+% % Scarecrow got its parts dispersed! making it:
+% % \\
+% ${\displaystyle \int \frac{-2}{(t+\sqrt{2}+1)(t-\sqrt{2}+1)}\,dt = \frac{1}{\sqrt{2}} \int \frac{1}{(t+\sqrt{2}+1)} - \frac{1}{(t-\sqrt{2}+1)}\,dt}$\newline
+% \\
+% ${\displaystyle = \frac{1}{\sqrt{2}} \ln|t+\sqrt{2}+1| - ln|t-\sqrt{2}+1| + C}$\newline
+% \\
+% ${\displaystyle = \frac{1}{\sqrt{2}} (\ln|\tan(\frac{x}{2})+\sqrt{2}+1| - \ln|\tan(\frac{x}{2})-\sqrt{2}+1|) + C}$\newline
+% % \\
+% % The father looked down at the fallen scarecrow and exclaimed: \newline
+% \\
+% Therefore, ${\displaystyle \int \frac{x^{\frac{\ln(1-\sin(2x))}{\ln(x)}}}{(\cos(x)-\sin(x))^3} \,dx}$ \newline
+% \\
+% ${\displaystyle = \frac{1}{\sqrt{2}} (\ln|\tan(\frac{x}{2})+\sqrt{2}+1| - \ln|\tan(\frac{x}{2})-\sqrt{2}+1|) + C}$
+\end{document}

@@ -1,0 +1,44 @@
+%Jason Hwang
+%Math Integration Club
+
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18, width=10cm}
+\newcommand*\Lh{\ensuremath{\overset{\kern2pt L'H}{=}}}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+\title{SMC Math Integration Club\\Alternative Method for Irrational Integrals}
+\author{Jae Sung "Jason" Hwang}
+\date{April 10th, 2025}
+
+\begin{document}
+\maketitle
+
+\pagebreak
+{Irrational integrals are not fun to evaluate. I mean, take a look at this:} \\
+\\${\displaystyle \int \frac{dx}{(x-1)\sqrt{x^{2}-1}} }$ \\
+\\ {Yes, you CAN do a trigonometric substitution and completely waste a day doing it, but what if there was an alternative method? A method more suited for integrals like the one we are seeing.}
+\\ {Well, lucky for us, there is a substitution that makes integrals like above more doable.} \\
+\\ {Suppose, } ${\displaystyle I = \int \frac{dx}{(x-\alpha)^{k}\sqrt{ax^{2}+bx+c}}}$ \text{ and let, } ${\displaystyle t = \frac{1}{x-\alpha}}$ \\
+\\ ${\displaystyle x-\alpha = \frac{1}{t} \implies dx = -t^{-2} dt}$
+\\ ${\displaystyle x = \frac{1}{t} + \alpha = \frac{1+\alpha t}{t} \implies x^{2} = \frac{1+2\alpha t+\alpha^{2}t^{2}}{t^{2}}}$ \\
+\\ ${\displaystyle ax^{2} + bx + c = \frac{a+2a\alpha t + a\alpha^{2}t^{2}+bt+b\alpha t^{2} +ct^{2}}{t^{2}} = \frac{(a\alpha^{2}+b\alpha + c)t^{2}+(2a\alpha+b)t+a}{t^{2}}}$ \\
+\\ {With the correct substitution, the integral should now look like: } \\
+\\ ${\displaystyle I = \int \frac{dx}{(x-\alpha)^{k}\sqrt{ax^{2}+bx+c}} = -\int \frac{t^{k} \cdot t^{-2} dt}{\sqrt{\frac{(a\alpha^{2}+b\alpha + c)t^{2}+(2a\alpha+b)t+a}{t^{2}}}}}$ \\
+\\ ${\displaystyle I = -\int \frac{t^{k} \cdot t^{-2} \cdot t dt}{\sqrt{(a\alpha^{2}+b\alpha + c)t^{2}+(2a\alpha+b)t+a}} = -\int \frac{t^{k-1} dt}{\sqrt{(a\alpha^{2}+b\alpha + c)t^{2}+(2a\alpha+b)t+a}}}$ \\
+\\ {To sum it up, } ${\displaystyle I = \int \frac{dx}{(x-\alpha)^{k}\sqrt{ax^{2}+bx+c}} = -\int \frac{t^{k-1} dt}{\sqrt{(a\alpha^{2}+b\alpha + c)t^{2}+(2a\alpha+b)t+a}}}$ \\
+\\ {And alothough the integral looks more complicated, it actually makes integrals of that form doable!} 
+
+\newpage
+1) {Evaluate } ${\displaystyle \int \frac{dx}{(x-1)\sqrt{x^{2}-1}} }$ {using the above substitution.} \newpage
+2) ${\displaystyle \int \frac{dx}{(x-3)\sqrt{4x^{2}-20x+25}} }$ \newpage
+3) ${\displaystyle \int \frac{du}{(u-7)^{3}\sqrt{25u^{2}-370u+1369}} }$ \newpage
+4) ${\displaystyle \int \frac{dx}{(x-1)\sqrt{x^{2}+2x-8}} }$ \newpage
+5) ${\displaystyle \int \frac{\cos(\theta) d\theta}{\sin(\theta)\sqrt{-\cos^{2}(\theta)+2\sin(\theta)-7}-\sqrt{\sin^2(\theta)+2(\sin(\theta)-4)}} }$
+
+\end{document}

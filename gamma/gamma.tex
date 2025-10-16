@@ -1,0 +1,65 @@
+%Jason Hwang
+%Math Integration Club
+
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18, width=10cm}
+\newcommand*\Lh{\ensuremath{\overset{\kern2pt L'H}{=}}}
+\newcommand{\bbGamma}{{\mathpalette\makebbGamma\relax}}
+\newcommand{\makebbGamma}[2]{%
+  \raisebox{\depth}{\scalebox{1}[-1]{$\mathsurround=0pt#1\mathbb{L}$}}%
+}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+
+\title{SMC Math Integration Club\\Gamma Functions, or Generalized Factorial Functions}
+\author{Jae Sung "Jason" Hwang}
+\date{April 24th, 2025}
+
+\begin{document}
+\maketitle
+
+\newpage
+
+{What comes up in your mind when you think of factorials?} \\
+\\ ${1! = 1 \text{ }, 2! =2 \cdot 1\text{ }, 3! = 3 \cdot 2 \cdot 1\text{ }, 4! = 4 \cdot 3 \cdot 2 \cdot 1\text{ }, ...\text{ } ,\text{ } n! = n \cdot (n-1) \text{ } ... \text{ } \cdot 3 \cdot 2 \cdot 1\text{ }}$\\
+\\ {Matter of fact, what \textit{are} factorials? Why do we care about recursive multiplication?} \\ 
+\\ {Take a look at these sets of letters.} ${\{a\},\{a,b\},\{a,b,c\}}$ \\
+\\ {How many ways can we arrange the order of these letters within the sets?} \\
+\\ {The first is easy: one. There is one element, so there is only one way to arrange the letter.}\\
+\\ {Let's try for all of the sets} \\
+\\ ${\{a,b\},\{b,a\}}$ {There are two ways.}\\
+\\ ${\{a,b,c\},\{a,c,b\},\{b,a,c\},\{b,c,a\},\{c,a,b\},\{c,b,a\}}$ {There are six ways!} \\
+\\ {See the pattern?} \\
+\\ {How does this correlate with integrals and integration?} \\
+\newpage
+{Four Mathematicians: John Wallis, Daniel Bernoulli, Leonhard Euler, and Adrien-Marie Legendre communicated back and forth regarding factorials, and we know this because the letters they sent each other are actually a public record!} \\
+\\ ${\displaystyle \Gamma({t}) = \int _{0}^{\infty} e^{-x}x^{t-1} \,dx}$ \\
+\\ {This function, the generalized factorial function, is widely known as the Gamma function, named after Legendre who perfected it after much iterations. The idea is that if you set } ${t}$ { to any number, not just the positive integers, the function will give you the factorial of that number.} \\
+\\ {The limitations are that } ${t}$ { cannot be any negative integers and zero, but think about it. How does one compute the factorial of 1/2?} \\
+\\ {That's why it is called the generalized factorial function because you can now compute not just positive integers' factorials, but factorials of numbers extending to other domains as well.} \\ 
+\\ {Jason's to do:} \\
+\\ {Prove that: } ${\alpha\Gamma(\alpha) = \Gamma(\alpha + 1)}$
+\newpage
+
+1) {Compute } ${\displaystyle \Gamma(1) = \int_{0}^{\infty} e^{-x}x^{1-1} \,dx }$ 
+\newpage
+
+2)  {Compute } ${\frac{1}{2}!}$ {using the Gamma function.} \\
+\\ {That is, } ${\displaystyle \int_{0}^{\infty} e^{-x}x^{\frac{1}{2}-1} \,dx}$ \\
+\newpage
+
+3) ${\displaystyle \int_{-\infty}^{\infty} x^{2} e^{-x^2} \,dx }$ { Hint: This is an even function.}
+\newpage
+
+4) ${\displaystyle \int_{0}^{\infty} x^{2019} e^{-2020x} \,dx}$
+\newpage
+
+5) ${\displaystyle \int_{0}^{\infty} x^{5} e^{-x^{4}} \,dx}$
+
+\end{document}
